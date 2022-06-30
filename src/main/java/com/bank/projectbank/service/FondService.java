@@ -19,5 +19,7 @@ public class FondService {
     return fondsRepository.findAll();
   }
 
-
+  public Fond saveFond(Fond fond) {
+    return fondsRepository.save(fond);
+  }
 }
