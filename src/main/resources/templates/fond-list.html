@@ -25,6 +25,8 @@
     <td th:text="${fond.fondAmount}"></td>
     <td th:text="${fond.fondPrice}"></td>
     <td th:text="${fond.fondSum}"></td>
+    <td><a th:href="@{fond-delete/{id}(id=${fond.id})}">Delete</a></td>
+    <td><a th:href="@{fond-update/{id}(id=${fond.id})}">Edit</a></td>
   </tr>
   </tbody>
 </table>

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -28,12 +29,31 @@ public class MainController {
   }
 
   @GetMapping("/create-fond")
-  public String createUserForm(Fond fond){
+  public String createFondForm(Fond fond){
     return "create-fond";
   }
 
   @PostMapping("/create-fond")
-  public String createUser(Fond fond){
+  public String createFond(Fond fond){
+    fondListService.saveFond(fond);
+    return "redirect:/fonds";
+  }
+
+  @GetMapping("/fond-delete/{id}")
+  public String deleteFond(@PathVariable("id") Long id) {
+    fondListService.deleteFondById(id);
+    return "redirect:/fonds";
+  }
+
+  @GetMapping("/fond-update/{id}")
+  public String updateFondForm(@PathVariable("id") Long id, Model model){
+    Fond fond = fondListService.findFondById(id);
+    model.addAttribute("fond", fond);
+    return "fond-update";
+    }
+
+  @PostMapping("/fond-update")
+  public String updateFond(Fond fond){
     fondListService.saveFond(fond);
     return "redirect:/fonds";
   }

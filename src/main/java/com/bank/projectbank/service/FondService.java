@@ -23,6 +23,14 @@ public class FondService {
     return fondsRepository.save(fond);
   }
 
+  public void deleteFondById(Long id){
+    fondsRepository.deleteById(id);
+  }
+
+  public Fond findFondById(Long id){
+    return fondsRepository.getOne(id);
+  }
+
   public float getAllFondSum() {
     List<Fond> fonds = getAllFond();
     float allFondSum = 0;
