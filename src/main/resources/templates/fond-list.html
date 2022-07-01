@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Список всех фондов</title>
+</head>
+<body>
+<h1> Стомость портфеля
+<var th:text="${allFondSum}"></var>
+</h1>
+<table>
+  <thead>
+  <tr>
+    <th style="font-size: 25px">Id</th>
+    <th style="font-size: 25px">Тикер Фонда</th>
+    <th style="font-size: 25px">Количество</th>
+    <th style="font-size: 25px">Цена</th>
+    <th style="font-size: 25px">Сумма всех фондов</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="fond : ${fondList}">
+    <td th:text="${fond.id}"></td>
+    <td th:text="${fond.fondName}"></td>
+    <td th:text="${fond.fondAmount}"></td>
+    <td th:text="${fond.fondPrice}"></td>
+    <td th:text="${fond.fondSum}"></td>
+    <td><a th:href="@{fond-delete/{id}(id=${fond.id})}">Delete</a></td>
+    <td><a th:href="@{fond-update/{id}(id=${fond.id})}">Edit</a></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<p><a href="/create-fond">Create fond</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Fond create</title>
+</head>
+<body>
+<form action="#" th:action="@{/create-fond}" th:object="${fond}" method="post">
+  <label for="fondName">Fond name</label>
+  <input type="text" th:field="*{fondName}" id="fondName" placeholder="Fond Name">
+  <br>
+  <label for="fondAmount">Fond amount</label>
+  <input type="number" th:field="*{fondAmount}" id="fondAmount" placeholder="Fond Amount">
+  <br>
+  <label for="fondPrice">Fond price</label>
+  <input type="number" th:field="*{fondPrice}" id="fondPrice" placeholder="Fond Price">
+  <br>
+  <label for="fondSum">Fond sum</label>
+  <input type="number" th:field="*{fondSum}" id="fondSum" placeholder="Fond Sum">
+  <br>
+  <input type="submit" value="Create Fond">
+</form>
+</body>
+</html>
