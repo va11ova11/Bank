@@ -21,7 +21,9 @@ public class MainController {
   @GetMapping("/fonds")
   public String getPortfolio(Model model) {
     List<Fond> fondList = fondListService.getAllFond();
+    float allFondSum = fondListService.getAllFondSum();
     model.addAttribute("fondList", fondList);
+    model.addAttribute("allFondSum", allFondSum);
     return "fond-list";
   }
 

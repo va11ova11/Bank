@@ -22,4 +22,13 @@ public class FondService {
   public Fond saveFond(Fond fond) {
     return fondsRepository.save(fond);
   }
+
+  public float getAllFondSum() {
+    List<Fond> fonds = getAllFond();
+    float allFondSum = 0;
+    for (Fond fond : fonds) {
+      allFondSum += fond.getFondSum();
+    }
+    return allFondSum;
+  }
 }
